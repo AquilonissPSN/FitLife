@@ -90,6 +90,6 @@ flake8
 ---
 
 ## 👤 Автор
-- **Святослав Прасолов** (Студент курса «Python-разработчик», Яндекс Практикум)
+- **Святослав Прасолов**
 - GitHub: [@AquilonissPSN](https://github.com/AquilonissPSN)
 - Email: [prasolovsvyatoslav@gmail.com](mailto:prasolovsvyatoslav@gmail.com)
