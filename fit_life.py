@@ -1,26 +1,26 @@
-# Проект FitLife - MVP версия 1.0
-
-# Спрашиваем имя пользователя и сохраняем введенные им данные
-user_name = input('Введите Ваше имя: ')
-# Спрашиваем возраст пользователя и сохраняем как int
-user_age = int(input(f'{user_name}, укажите Ваш возраст: '))
-
-# Запрашиваем у пользователя его вес и сохраняем.
-user_weight = float(input(f'{user_name}, укажите Ваш вес (в кг.): '))
-# Запрашиваем у пользователя его рост и сохраняем.
-user_height = float(input(f'{user_name}, укажите Ваш рост (в метрах): '))
-
-bmi = user_weight / (user_height ** 2)  # Расчет индекса массы тела
-
-# Константа для расчета воды на килограмм
 WATER_PER_KG = 30
-# Константа для расчета воды в литрах.
 WATER_PER_LITTER = 1000
-# Расчитываем необходимое количество воды в мл.
-water_ml = user_weight * WATER_PER_KG
-# Переводим мл. в л.
-water_l = water_ml / WATER_PER_LITTER
+SEPARATOR_LENGTH = 50
 
-print(f'Здравствуйте, {user_name}! Ваш ИМТ: {round(bmi, 1)}')
-print(f'Вам нужно пить {round(water_l, 1)} л. воды в день', '-' * 50, sep='\n')
-print("Расчет окончен. Будьте здоровы!")
+user_name = input('Введите Ваше имя: ')
+
+try:
+    user_age = int(input(f'{user_name}, укажите Ваш возраст: '))
+    user_weight = float(input(f'{user_name}, укажите Ваш вес (в кг.): '))
+    user_height = float(input(f'{user_name}, укажите Ваш рост (в метрах): '))
+except ValueError:
+    print('Ошибка: возраст, вес и рост должны быть указаны числами!')
+    exit(1)
+
+bmi = round(user_weight / (user_height ** 2), 1)
+
+water_ml = user_weight * WATER_PER_KG
+water_l = round(water_ml / WATER_PER_LITTER, 1)
+
+print(f'Здравствуйте, {user_name}! Ваш ИМТ: {bmi}')
+print(
+    f'Вам нужно пить {water_l} л. воды в день',
+    '-' * SEPARATOR_LENGTH,
+    sep='\n'
+)
+print('Расчет окончен. Будьте здоровы!')
